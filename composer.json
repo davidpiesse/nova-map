@@ -1,0 +1,30 @@
+{
+    "name": "davidpiesse/nova-map",
+    "description": "Map field for Laravel Nova",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0",
+        "grimzy/laravel-mysql-spatial": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Davidpiesse\\Map\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Davidpiesse\\Map\\FieldServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
