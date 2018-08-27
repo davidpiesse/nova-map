@@ -2,6 +2,8 @@
 
 This map field currently ONLY shows in details view - BUT editing will be coming soon!
 
+![Gif!](https://res.cloudinary.com/davidpiesse/image/upload/v1535397821/ezgif.com-resize_fbxddc.gif)
+
 You can use this Map Field with three different sort of spatial data:
 * GeoJSON String property
 * Latitude and Longitude properties
