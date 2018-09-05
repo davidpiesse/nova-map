@@ -1,6 +1,6 @@
 <template>
     <l-map 
-        class="w-full h-full rounded" 
+        class="w-full h-full rounded z-10" 
         ref="map" 
         :zoom="zoom" 
         :center="center" 
