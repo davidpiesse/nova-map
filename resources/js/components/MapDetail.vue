@@ -97,6 +97,15 @@ export default {
                         this.value[this.latitude_field],
                     ]
                 }
+            }else if(this.type == "LatLonField"){
+                let coords = this.value.split(/[ ,]+/).filter(Boolean);
+                return {
+                    type: 'Point',
+                    coordinates: [
+                        coords[1],
+                        coords[0]
+                    ]
+                }
             }else if(this.type == "GeoJSON"){
                 return JSON.parse(this.value)
             }else{
@@ -105,7 +114,6 @@ export default {
         }
     },
     mounted() {
-
         this.$nextTick(() => {
             this.map = this.$refs.map.mapObject
 

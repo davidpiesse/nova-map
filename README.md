@@ -7,6 +7,7 @@ This map field currently ONLY shows in details view - BUT editing will be coming
 You can use this Map Field with three different sort of spatial data:
 * GeoJSON String property
 * Latitude and Longitude properties
+* Latitude and Longitude both in a single text field
 * Core Laravel Spatial Types 
     * Point
     * LineString
@@ -31,6 +32,7 @@ To specify what sort of spatial data you are passing to this field you MUST set 
 ```
 These are the valid Spatial Types
 * LatLon
+* LatLonField (single field)
 * GeoJSON
 * Point
 * LineString
@@ -69,6 +71,12 @@ Map::make('Some Point Location')
     ->spatialType('LatLon')
     ->latitude('latitude_field_name')
     ->longitude('longitude_field_name'),
+```
+
+## Latitude & Longitude (in single fields) 
+```php
+Map::make('Some Point Location', 'coordinate_field_name')
+    ->spatialType('LatLonField'),
 ```
 
 ## Set the Height
