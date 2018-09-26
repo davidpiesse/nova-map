@@ -89,21 +89,12 @@ export default {
     },
     computed: {
         geojson(){
-            if(this.type == "LatLon"){
+            if(this.type == "LatLon" || this.type == "LatLonField"){
                 return {
                     type: 'Point',
                     coordinates: [
-                        this.value[this.longitude_field],
-                        this.value[this.latitude_field],
-                    ]
-                }
-            }else if(this.type == "LatLonField"){
-                let coords = this.value.split(/[ ,]+/).filter(Boolean);
-                return {
-                    type: 'Point',
-                    coordinates: [
-                        coords[1],
-                        coords[0]
+                        this.value.lon,
+                        this.value.lat,
                     ]
                 }
             }else if(this.type == "GeoJSON"){

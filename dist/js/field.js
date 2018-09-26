@@ -779,16 +779,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         geojson: function geojson() {
-            if (this.type == "LatLon") {
+            if (this.type == "LatLon" || this.type == "LatLonField") {
                 return {
                     type: 'Point',
-                    coordinates: [this.value[this.longitude_field], this.value[this.latitude_field]]
-                };
-            } else if (this.type == "LatLonField") {
-                var coords = this.value.split(/[ ,]+/).filter(Boolean);
-                return {
-                    type: 'Point',
-                    coordinates: [coords[1], coords[0]]
+                    coordinates: [this.value.lon, this.value.lat]
                 };
             } else if (this.type == "GeoJSON") {
                 return JSON.parse(this.value);

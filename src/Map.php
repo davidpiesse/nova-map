@@ -27,7 +27,6 @@ class Map extends Field
     }
 
     public function latitude($latitude_field){
-
         $this->attribute = null;
 
         return $this->withMeta([
@@ -37,7 +36,7 @@ class Map extends Field
 
     public function longitude($longitude_field){
         $this->attribute = null;
-
+        
         return $this->withMeta([
             'longitude_field' => $longitude_field
         ]);
@@ -49,6 +48,33 @@ class Map extends Field
         return $this->withMeta([
             'geojson_field' => $geojson_field
         ]);
+    }
+
+    public function resolveAttribute($resource, $attribute = null){
+        switch($this->meta['spatialType']){
+            case 'LatLon':
+                return [
+                    'lat' => $resource->{$this->meta['latitude_field']},
+                    'lon' => $resource->{$this->meta['longitude_field']},
+                ];
+            break;
+            case 'LatLonField':
+                $parts = collect(explode(',',$resource->{$attribute}))->map(function($item){
+                    return trim($item);
+                });
+
+                return [
+                    'lat' => $parts[0],
+                    'lon' => $parts[1],
+                ];
+            break;
+            case 'GeoJSON':
+                return $resource->{$attribute};
+            break;
+            default:
+                return $resource->{$attribute};
+            break;
+        }
     }
 
     // protected function fillAttributeFromRequest(NovaRequest $request,
