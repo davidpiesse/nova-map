@@ -9,8 +9,9 @@
         </div>
         <div class="w-3/4 py-4">
             <div class="rounded flex flex-col" :style="'height: ' + field.height">
-                <map-detail 
-                    :type="field.spatialType" 
+                <map-detail
+                    :type="field.spatialType"
+                    :zoom="field.zoom"
                     :value="field.value"
                     :latitude_field="field.latitude_field"
                     :longitude_field="field.longitude_field"
