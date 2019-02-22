@@ -14,34 +14,10 @@ class Map extends Field
 
     public $showOnIndex = false;
 
-    public $height = '300px';
-
-    public $zoom = 8;
-
-    public function __construct($name, $attribute = null, $resolveCallback = null)
-    {
-        parent::__construct($name, $attribute, $resolveCallback);
-
-        $this->withMeta([
-            'height' => $this->height,
-            'zoom' => $this->zoom,
+    public function height($height = '300px'){
+        return $this->withMeta([
+            'height' => $height
         ]);
-    }
-
-    public function height($height){
-        if($height) {
-            return $this->withMeta([
-                'height' => $height
-            ]);
-        }
-    }
-
-    public function zoom($zoom){
-        if($zoom) {
-            return $this->withMeta([
-                'zoom' => $zoom
-            ]);
-        }
     }
 
     public function spatialType($type){
@@ -60,7 +36,7 @@ class Map extends Field
 
     public function longitude($longitude_field){
         $this->attribute = null;
-
+        
         return $this->withMeta([
             'longitude_field' => $longitude_field
         ]);
@@ -74,6 +50,14 @@ class Map extends Field
         ]);
     }
 
+    public function rawGeojson($geojson_data){
+        $this->attribute = null;
+
+        return $this->withMeta([
+            'geojson_data' => $geojson_data //pass in string
+        ]);
+    }
+
     public function resolveAttribute($resource, $attribute = null){
         switch($this->meta['spatialType']){
             case 'LatLon':
@@ -81,7 +65,7 @@ class Map extends Field
                     'lat' => $resource->{$this->meta['latitude_field']},
                     'lon' => $resource->{$this->meta['longitude_field']},
                 ];
-                break;
+            break;
             case 'LatLonField':
                 $parts = collect(explode(',',$resource->{$attribute}))->map(function($item){
                     return trim($item);
@@ -91,13 +75,16 @@ class Map extends Field
                     'lat' => $parts[0],
                     'lon' => $parts[1],
                 ];
-                break;
+            break;
             case 'GeoJSON':
                 return $resource->{$attribute};
-                break;
+            break;
+            case 'RawGeoJSON':
+                return json_decode($this->meta['geojson_data']);
+            break;
             default:
                 return $resource->{$attribute};
-                break;
+            break;
         }
     }
 
