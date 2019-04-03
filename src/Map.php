@@ -26,6 +26,12 @@ class Map extends Field
         ]);
     }
 
+    public function zoom($zoom = 13){
+        return $this->withMeta([
+            'zoom' => $zoom
+        ]);
+    }
+
     public function latitude($latitude_field){
         $this->attribute = null;
 
