@@ -1,3 +1,5 @@
+[![Total Downloads](https://poser.pugx.org/davidpiesse/nova-map/downloads)](https://packagist.org/packages/davidpiesse/nova-map)
+[![Latest Stable Version](https://poser.pugx.org/davidpiesse/nova-map/v/stable)](https://packagist.org/packages/davidpiesse/nova-map)
 # Map Field
 
 This map field currently ONLY shows in details view - BUT editing will be coming soon!
