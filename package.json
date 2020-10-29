@@ -15,7 +15,9 @@
         "laravel-nova": "^1.0"
     },
     "dependencies": {
+        "@types/leaflet": "^1.5.12",
+        "leaflet": "^1.3.4",
         "vue": "^2.5.0",
-        "vue2-leaflet": "^1.2.0"
+        "vue2-leaflet": "^2.5.2"
     }
 }
