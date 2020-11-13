@@ -107,13 +107,10 @@
         mounted() {
             this.$nextTick(() => {
                 this.map = this.$refs.map.mapObject
-
+                console.log(this.map);
                 this.geojsonLayer = this.$refs.geojsonLayer.mapObject
-
-                this.setCenter()
-
+                this.setCenter();
             })
-
         },
         methods: {
             setCenter() {
