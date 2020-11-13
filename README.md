@@ -2,7 +2,7 @@
 [![Latest Stable Version](https://poser.pugx.org/davidpiesse/nova-map/v/stable)](https://packagist.org/packages/davidpiesse/nova-map)
 # Map Field
 
-This map field currently ONLY shows in details view - BUT editing will be coming soon!
+This map field currently ONLY shows in details view
 
 ![Gif!](https://res.cloudinary.com/davidpiesse/image/upload/v1535397821/ezgif.com-resize_fbxddc.gif)
 
@@ -107,7 +107,7 @@ protected $spatialFields = [
 ```
 Your Model is now ready to process spatial data to Nova
 
-# Planned Development
+# Future Development
 * Editing capabilities for all Spatial Types
 * View Place Field address on a Map
 * Remove reliance on grimzy package from accessing core Spatial Types
