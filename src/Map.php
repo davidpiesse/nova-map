@@ -93,15 +93,4 @@ class Map extends Field
             break;
         }
     }
-
-    // protected function fillAttributeFromRequest(NovaRequest $request,
-    //                                             $requestAttribute,
-    //                                             $model,
-    //                                             $attribute)
-    // {
-    //     if ($request->exists($requestAttribute)) {
-    //         $geometry = Geometry::fromJson($request[$requestAttribute]);
-    //         $model->{$attribute} = $geometry;
-    //     }
-    // }
 }
